@@ -10,6 +10,7 @@ import (
 	"strconv"
 )
 
+// Проверка входит ли число в диапозон от 1 до 10
 func NumIsValid(num string) (int, string) {
 	arabic := [10]string{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}
 	roman := [10]string{"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"}
@@ -26,6 +27,7 @@ func NumIsValid(num string) (int, string) {
 	return 0, ""
 }
 
+// Обработка введенного оператора и вычисление результата
 func Calculator(x, y int, oper string) (int, error) {
 	switch oper {
 	case "+":
@@ -41,12 +43,14 @@ func Calculator(x, y int, oper string) (int, error) {
 	}
 }
 
+// Преобразование из строки в число
 func ParserInt(num string) int {
 	var result int
 	result, _ = strconv.Atoi(num)
 	return result
 }
 
+// Преобразование из римской цифры в число
 func RomanToInt(num string) int {
 	romanToArabic := map[string]int{
 		"I": 1,
@@ -69,6 +73,7 @@ func RomanToInt(num string) int {
 	return result
 }
 
+// Преобразование числа в римскую цифру
 func IntToRoman(number int) string {
 	conv := []struct {
 		arabic int
@@ -94,6 +99,7 @@ func IntToRoman(number int) string {
 	return result
 }
 
+// Обработка примера и вывод результата
 func OutputResult(x, oper, y string) {
 	num1, numerical1 := NumIsValid(x)
 	num2, numerical2 := NumIsValid(y)
@@ -123,6 +129,7 @@ func OutputResult(x, oper, y string) {
 	fmt.Println(result)
 }
 
+// Получение значений из консоли
 func main() {
 	var x, oper, y string
 	var inputtext string
